@@ -1,22 +1,22 @@
+const { name } = require("ejs");
 const express = require("express"); //  importing express npm package
 const app = express(); //creating instance for express
 
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  return res.status(200).json({
-    message: "data fetched successfully...........",
-  });
+  const name = "Abhishek Adhikari is trying his best to learn AI........";
+  res.render("home", { name });
 });
 
 app.get("/about", (req, res) => {
-  return res.status(200).json({
-    message: "this is about page.............",
-  });
+  const name = "research about something";
+  return res.render("about", { name });
 });
 
 app.get("/contact", (req, res) => {
-  return res
-    .status(200)
-    .send(`<h1>hello mine name is AI Engineer from nepal.........</h1>`);
+  const name = "residual";
+  res.render("contact", { name });
 });
 
 const PORT = 4000;
